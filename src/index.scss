@@ -1,0 +1,20 @@
+@use "@/styles/fonts.scss";
+@use "@/styles/variables.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-text-color);
+  font-family: Inter, sans-serif;
+
+  padding: 42px;
+
+  background-color: var(--primary-background-color);
+}

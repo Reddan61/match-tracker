@@ -1,0 +1,34 @@
+.button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 40px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  font-size: 18px;
+  background-color: var(--refresh-button-background-color);
+
+  user-select: none;
+}
+
+.loading {
+  background-color: var(--disabled-refresh-button-background-color);
+}
+
+.icon {
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
