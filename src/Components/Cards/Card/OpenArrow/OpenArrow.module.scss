@@ -1,0 +1,12 @@
+.openInfo {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.arrowIcon {
+  transition: transform 0.2s linear;
+}
+
+.arrowIconOpen {
+  transform: rotate(180deg);
+}

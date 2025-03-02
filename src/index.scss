@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+html {
+  margin-right: calc(-1 * (100vw - 100%));
+  overflow-x: hidden;
+}
+
 body {
   width: 100%;
   min-height: 100vh;

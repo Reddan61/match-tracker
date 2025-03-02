@@ -11,7 +11,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "svg/*": ["./public/assets/svg/*"],
-      "fonts/*": ["./public/fonts/*"]
+      "png/*": ["./public/assets/png/*"]
     }
   }
 }

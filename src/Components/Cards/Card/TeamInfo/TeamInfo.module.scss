@@ -1,0 +1,51 @@
+@use "@functions" as func;
+
+.info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.players {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  padding: 14px 24px;
+
+  background-color: var(--secondary-card-background-color);
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    font-size: func.adaptiveSize(12px, 14px);
+    color: var(--secondary-text-color);
+    gap: 8px;
+
+    span {
+      font-weight: 600;
+      font-size: func.adaptiveSize(14px, 16px);
+      color: var(--primary-text-color);
+    }
+  }
+}
+
+.separator {
+  margin: 0 4px;
+  height: 16px;
+  border: 1px solid rgba(20, 26, 33, 1);
+}
+
+@media (max-width: 775px) {
+  .stats {
+    padding: 14px 12px;
+  }
+}

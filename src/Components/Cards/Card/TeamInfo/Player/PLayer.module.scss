@@ -1,0 +1,63 @@
+@use "@functions" as func;
+
+.player {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  height: 100%;
+
+  padding: 8px 24px;
+  border-radius: 4px;
+
+  background-color: var(--secondary-card-background-color);
+
+  img {
+    user-select: none;
+    width: func.adaptiveSize(32px, 36px);
+    height: func.adaptiveSize(32px, 36px);
+  }
+
+  h3 {
+    text-align: center;
+    word-break: break-all;
+    font-weight: 600;
+    font-size: func.adaptiveSize(14px, 16px);
+  }
+}
+
+.block {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  max-height: fit-content;
+  gap: 8px;
+
+  &:last-child {
+    justify-content: flex-end;
+  }
+}
+
+.kills {
+  font-size: func.adaptiveSize(12px, 14px);
+  color: var(--secondary-text-color);
+  text-align: center;
+
+  span {
+    margin: 0 0 0 8px;
+    font-weight: 600;
+    font-size: func.adaptiveSize(14px, 16px);
+    color: var(--primary-text-color);
+  }
+}
+
+@media (max-width: 775px) {
+  .player {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 4px;
+    padding: 7px 12px;
+  }
+}

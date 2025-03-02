@@ -13,8 +13,10 @@ module.exports = {
     extensions: [".ts", ".tsx", ".js"],
     alias: {
       "@": path.resolve(__dirname, "src"),
+      "@functions": path.resolve(__dirname, "src", "styles", "functions"),
       fonts: path.resolve(__dirname, "public", "fonts"),
       svg: path.resolve(__dirname, "public", "assets", "svg"),
+      png: path.resolve(__dirname, "public", "assets", "png"),
     },
   },
   devServer: {

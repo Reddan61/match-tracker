@@ -1,9 +1,11 @@
+@use "@functions" as func;
+
 .status {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 92px;
-  height: 27px;
+  width: func.adaptiveSize(70px, 92px);
+  height: func.adaptiveSize(23px, 27px);
   border-radius: 4px;
 
   font-size: 12px;

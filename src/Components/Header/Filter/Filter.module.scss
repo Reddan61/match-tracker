@@ -1,0 +1,72 @@
+.filter {
+  position: relative;
+}
+
+.open {
+  width: fit-content;
+  width: 100%;
+  min-width: 170px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 24px;
+  padding: 16px 20px 16px 16px;
+  color: var(--filter-primary-text-color);
+  background-color: var(--filter-primary-card-background-color);
+  cursor: pointer;
+}
+
+.icon {
+  transition: transform 0.2s linear;
+  margin: 0 0 0 12px;
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+}
+
+.statuses {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0 0;
+}
+
+.filterItem {
+  padding: 12px;
+  line-height: 24px;
+  text-align: left;
+
+  transition: color 0.2s linear;
+
+  color: var(--filter-primary-text-color);
+  background-color: var(--filter-secondary-card-background-color);
+  cursor: pointer;
+
+  &:hover {
+    color: var(----primary-text-color);
+  }
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+@media (max-width: 775px) {
+  .filter {
+    width: 100%;
+  }
+
+  .statuses {
+    margin: 10px 0 0;
+  }
+}

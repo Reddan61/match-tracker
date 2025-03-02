@@ -1,6 +1,8 @@
 import { useEffect } from "react";
-import { Matches_API } from "@/api/Matches";
 import { useMatches } from "@/store/Matches";
+import { Matches_API } from "@/api/Matches";
+import { IMatchResponse, MatchTransformer } from "@/api/transformers/Match";
+import { Sockets, SOCKETS_ENDPOINTS } from "@/api/Sockets";
 import { Cards } from "@/Components/Cards/Cards";
 import { Header } from "@/Components/Header/Header";
 
@@ -22,6 +24,12 @@ export const App = () => {
       } else {
         setError(true);
       }
+
+      Sockets.connect();
+      Sockets.on<IMatchResponse[]>(SOCKETS_ENDPOINTS.UPDATE_MATCHES, (data) => {
+        const transformed = MatchTransformer.fromApiMany(data);
+        setMatches(transformed);
+      });
     })();
   }, []);
 
