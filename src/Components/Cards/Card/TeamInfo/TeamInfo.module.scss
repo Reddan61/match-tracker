@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   padding: 14px 24px;
+  border-radius: 4px;
 
   background-color: var(--secondary-card-background-color);
 
@@ -30,7 +31,15 @@
     color: var(--secondary-text-color);
     gap: 8px;
 
+    &:first-child {
+      span {
+        min-width: 2em;
+      }
+    }
+
     span {
+      min-width: 1.5em;
+
       font-weight: 600;
       font-size: func.adaptiveSize(14px, 16px);
       color: var(--primary-text-color);

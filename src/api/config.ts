@@ -1,6 +1,7 @@
 const config = {
   baseURL: "https://app.ftoyd.com/fronttemp-service",
   socketURL: "wss://app.ftoyd.com/fronttemp-service/ws",
+  maxSocketReconnectionAttempts: 5,
 };
 
 export interface IApiResponse<D> {

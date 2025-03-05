@@ -12,6 +12,7 @@ export const App = () => {
   const setMatches = useMatches((state) => state.setMatches);
   const setError = useMatches((state) => state.setError);
   const setStartLoading = useMatches((state) => state.setStartLoading);
+  const setEndLoading = useMatches((state) => state.setEndLoading);
 
   useEffect(() => {
     (async function () {
@@ -24,6 +25,8 @@ export const App = () => {
       } else {
         setError(true);
       }
+
+      setEndLoading();
 
       Sockets.connect();
       Sockets.on<IMatchResponse[]>(SOCKETS_ENDPOINTS.UPDATE_MATCHES, (data) => {

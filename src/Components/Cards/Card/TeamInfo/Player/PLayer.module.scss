@@ -46,7 +46,8 @@
   text-align: center;
 
   span {
-    margin: 0 0 0 8px;
+    display: inline-block;
+    min-width: 20px;
     font-weight: 600;
     font-size: func.adaptiveSize(14px, 16px);
     color: var(--primary-text-color);

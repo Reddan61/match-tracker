@@ -16,6 +16,7 @@ interface IState {
 
 interface IActions {
   setStartLoading: () => void;
+  setEndLoading: () => void;
   setFilter: (filter: TFilter) => void;
   setError: (error: boolean) => void;
   setMatches: (matches: IState["matches"]) => void;
@@ -45,9 +46,8 @@ export const useMatches = create<IState & IActions>((set) => ({
     set((state) => ({
       matches,
       filteredMatches: filterMatches(matches, state.filter),
-      isError: false,
-      isLoading: false,
     })),
-  setError: (isError) => set(() => ({ isError, isLoading: false })),
+  setError: (isError) => set(() => ({ isError })),
   setStartLoading: () => set(() => ({ isLoading: true, isError: false })),
+  setEndLoading: () => set(() => ({ isLoading: false })),
 }));

@@ -9,6 +9,20 @@
 
   & > p {
     font-size: func.adaptiveSize(14px, 20px);
+
+    span {
+      display: inline-block;
+      min-width: 25px;
+
+      &:nth-child(2) {
+        min-width: unset;
+        transform: translateY(-0.1em);
+      }
+
+      &:first-child {
+        text-align: right;
+      }
+    }
   }
 }
 

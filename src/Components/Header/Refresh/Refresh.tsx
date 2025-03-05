@@ -9,6 +9,7 @@ export const Refresh = () => {
   const setMatches = useMatches((state) => state.setMatches);
   const setError = useMatches((state) => state.setError);
   const setStartLoading = useMatches((state) => state.setStartLoading);
+  const setEndLoading = useMatches((state) => state.setEndLoading);
 
   const refresh = async () => {
     setStartLoading();
@@ -20,6 +21,8 @@ export const Refresh = () => {
     } else {
       setError(true);
     }
+
+    setEndLoading();
   };
 
   return (

@@ -38,7 +38,7 @@ export const TeamsScore: FC<IProps> = ({
     <div className={styles.score}>
       <p>
         <AnimatedNumber num={homeScore} />
-        {" : "}
+        <span>&nbsp;:&nbsp;</span>
         <AnimatedNumber num={awayScore} />
       </p>
       <Status status={status} />
