@@ -12,8 +12,8 @@ export class Sockets {
 
   private static currentSocketReconnectionAttempt = 0;
 
-  static connect() {
-    Sockets.socket = new WebSocket(getConfigByKey("socketURL"));
+  static connect(socketURL: string) {
+    Sockets.socket = new WebSocket(socketURL);
 
     Sockets.socket.onopen = () => {
       console.log("Socket connected!");
@@ -22,11 +22,10 @@ export class Sockets {
 
     Sockets.socket.onerror = (e) => {
       console.error(e);
-      Sockets.socket.close();
     };
 
     Sockets.socket.onclose = () => {
-      Sockets.reconnect();
+      Sockets.reconnect(socketURL);
     };
 
     Sockets.socket.onmessage = (e) => {
@@ -42,7 +41,13 @@ export class Sockets {
     Sockets.events[event] = [...(Sockets.events[event] ?? []), cb];
 
     return () => {
-      const index = Sockets.events[event]?.findIndex((el) => {
+      const events = Sockets.events[event];
+
+      if (!events) {
+        return;
+      }
+
+      const index = events.findIndex((el) => {
         return el === cb;
       });
 
@@ -50,11 +55,15 @@ export class Sockets {
         return;
       }
 
-      Sockets.events[event].splice(index, 1);
+      events.splice(index, 1);
     };
   }
 
-  private static reconnect() {
+  public static off() {
+    Sockets.events = {};
+  }
+
+  private static reconnect(socketURL: string) {
     console.log("Socket starts reconnection!");
 
     if (
@@ -69,7 +78,7 @@ export class Sockets {
     setTimeout(() => {
       Sockets.currentSocketReconnectionAttempt += 1;
 
-      Sockets.connect();
+      Sockets.connect(socketURL);
     }, 5000);
   }
 }

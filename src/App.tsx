@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useMatches } from "@/store/Matches";
 import { Matches_API } from "@/api/Matches";
+import { getConfigByKey } from "@/api/config";
 import { IMatchResponse, MatchTransformer } from "@/api/transformers/Match";
 import { Sockets, SOCKETS_ENDPOINTS } from "@/api/Sockets";
 import { Cards } from "@/Components/Cards/Cards";
@@ -28,7 +29,7 @@ export const App = () => {
 
       setEndLoading();
 
-      Sockets.connect();
+      Sockets.connect(getConfigByKey("socketURL"));
       Sockets.on<IMatchResponse[]>(SOCKETS_ENDPOINTS.UPDATE_MATCHES, (data) => {
         const transformed = MatchTransformer.fromApiMany(data);
         setMatches(transformed);
